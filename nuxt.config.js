@@ -61,11 +61,15 @@ export default {
 				url: 'http://localhost:5000',
 				default: true,
 				vuex: {
-					/* see section below */
+					mutations: [
+						{
+							// When "state" is received,
+							// commit mutation "io/SET_STATE
+							state: 'io/SET_STATE'
+						}
+					]
 				},
-				namespaces: {
-					/* see section below */
-				}
+				namespaces: {}
 			}
 		]
 	},

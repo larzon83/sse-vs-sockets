@@ -4,6 +4,8 @@
 			<!-- <div>
 				<button @click.prevent="getMessage()">CLICK</button>
 			</div> -->
+			<div><i>VUEX state:</i> {{ currentState }}</div>
+			<br />
 			<p v-for="(message, index) in messages" :key="index">
 				{{ message }}
 			</p>
@@ -12,7 +14,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
 	name: 'Io',
@@ -26,7 +28,8 @@ export default {
 	},
 
 	computed: {
-		...mapGetters('oidc', ['oidcAccessToken', 'oidcUser'])
+		...mapGetters('oidc', ['oidcAccessToken', 'oidcUser']),
+		...mapState('io', ['currentState'])
 	},
 
 	mounted() {
