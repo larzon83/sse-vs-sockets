@@ -6,8 +6,8 @@
 			</div> -->
 			<div><i>VUEX state:</i> {{ currentState }}</div>
 			<br />
-			<p v-for="(message, index) in messages" :key="index">
-				{{ message }}
+			<p v-for="(state, index) in statesLog" :key="index">
+				{{ state }}
 			</p>
 		</BaseInfo>
 	</div>
@@ -21,8 +21,8 @@ export default {
 
 	data() {
 		return {
-			messages: [],
-			messageRxd: '',
+			// messageRxd: '',
+			statesLog: [],
 			socketStatus: {}
 		}
 	},
@@ -50,9 +50,8 @@ export default {
 			}
 		})
 
-		this.socket.on('state', (msg, cb) => {
-			console.log('msg:', msg)
-			this.messages.push(msg)
+		this.socket.on('state', (newState, cb) => {
+			this.statesLog.push(newState)
 		})
 
 		this.socket.on('error', reason => {

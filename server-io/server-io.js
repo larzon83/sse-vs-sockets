@@ -20,7 +20,7 @@ const io = require('socket.io')(http, {
 		res.writeHead(200, {
 			'Access-Control-Allow-Origin': 'http://localhost:3000',
 			'Access-Control-Allow-Methods': 'GET,POST',
-			// user is a custom header sent from FE
+			// "user" is a custom header sent from FE
 			'Access-Control-Allow-Headers': ['user', 'Authorization', 'Content-Type'],
 			'Access-Control-Allow-Credentials': true
 		})

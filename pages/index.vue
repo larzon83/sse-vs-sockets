@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<BaseInfo title="SSE">
-			<p v-for="(message, index) in messages" :key="index">
-				{{ message }}
+			<p v-for="(state, index) in statesLog" :key="index">
+				{{ state }}
 			</p>
 		</BaseInfo>
 	</div>
@@ -18,7 +18,7 @@ export default {
 
 	data() {
 		return {
-			messages: []
+			statesLog: []
 		}
 	},
 
@@ -46,9 +46,9 @@ export default {
 				// 	console.warn('Received a message w/o an event!', data)
 				// })
 
-				// Listen for messages based on their event (in this case, "chat")
-				msgServer.subscribe('state', (message, rawEvent) => {
-					this.messages.push(message)
+				// Listen for messages based on their event
+				msgServer.subscribe('state', (newState, rawEvent) => {
+					this.statesLog.push(newState)
 				})
 
 				// Unsubscribes from event-less messages after 7 seconds
@@ -58,11 +58,11 @@ export default {
 				// 	console.log('Stopped listening to event-less messages!')
 				// }, 7000)
 
-				// Unsubscribes from chat messages after 7 seconds
+				// Unsubscribes from state messages after 7 seconds
 				// setTimeout(() => {
 				// 	msgServer.unsubscribe('add')
 
-				// 	console.log('Stopped listening to chat messages')
+				// 	console.log('Stopped listening to state messages')
 				// }, 14000)
 			} catch (err) {
 				// When this error is caught, it means the initial connection to the
