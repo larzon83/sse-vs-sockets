@@ -44,7 +44,7 @@ export default {
 					extraHeaders: {
 						// <-- extraHeaders gets nested under transportOptions.polling
 						Authorization: `Bearer ${this.oidcAccessToken}`,
-						user: this.oidcUser.preferred_username
+						user: this.oidcUser?.preferred_username
 					}
 				}
 			}

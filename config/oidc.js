@@ -1,8 +1,8 @@
 const appUrl = 'http://localhost:3000'
 
 export const oidcSettings = {
-	authority: 'http://localhost:8080/auth/realms/oxygen_sse',
-	clientId: 'app_sse',
+	authority: 'http://localhost:8080/auth/realms/sse-vs-sockets',
+	clientId: 'app_sse-vs-sockets',
 	redirectUri: `${appUrl}/oidc-callback/`,
 	responseType: 'code',
 	scope: 'openid email',
