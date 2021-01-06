@@ -63,7 +63,9 @@ io.on('connection', socket => {
 	const { user } = socket.handshake.headers
 	console.log(`user "${user}" connected`)
 
+	// create a "room" for this user
 	socket.join(user)
+	// sent message to this room -> meaning, to every logged-in instance
 	io.to(user).emit('state', states[user])
 
 	// example for receiving events from client
