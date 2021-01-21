@@ -18,7 +18,7 @@
   "dependencies": {
     "@nuxtjs/axios": "5.12.5",
     "@nuxtjs/proxy": "2.1.0",
-    "core-js": "3.8.2",
+    "core-js": "3.8.3",
     "nuxt": "2.14.12",
     "nuxt-socket-io": "1.1.13",
     "oidc-client": "1.10.1",
