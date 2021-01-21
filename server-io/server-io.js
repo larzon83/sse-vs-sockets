@@ -11,29 +11,35 @@ const http = require('http').createServer(app)
 
 const io = require('socket.io')(http, {
 	path: '/emobstate',
-	// transports: ['websocket'],
 	serveClient: false,
 	perMessageDeflate: false,
 	// cors in socket.io v2:
-	origins: ['http://localhost:3000'],
-	handlePreflightRequest: (req, res) => {
-		res.writeHead(200, {
-			'Access-Control-Allow-Origin': 'http://localhost:3000',
-			'Access-Control-Allow-Methods': 'GET,POST',
-			// "user" is a custom header sent from FE
-			'Access-Control-Allow-Headers': ['user', 'Authorization', 'Content-Type'],
-			'Access-Control-Allow-Credentials': true
-		})
-		res.end()
-	}
+	// origins: ['http://localhost:3000'],
+	// handlePreflightRequest: (req, res) => {
+	// 	res.writeHead(200, {
+	// 		'Access-Control-Allow-Origin': 'http://localhost:3000',
+	// 		'Access-Control-Allow-Methods': 'GET,POST',
+	// 		// "user" is a custom header sent from FE
+	// 		'Access-Control-Allow-Headers': ['user', 'Authorization', 'Content-Type'],
+	// 		'Access-Control-Allow-Credentials': true
+	// 	})
+	// 	res.end()
+	// },
+
 	// cors in socket.io v3:
-	// cors: {
-	// 	// credentials: true,
-	// 	// origin: 'http://localhost:3000',
-	// 	origin: '*',
-	// 	methods: ['GET', 'POST']
-	// 	// allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With']
-	// }
+	cors: {
+		credentials: true,
+		origin: 'http://localhost:3000',
+		methods: ['GET', 'POST'],
+		allowedHeaders: [
+			'user', // "user" is a custom header sent from FE
+			'Content-Type',
+			'Authorization',
+			'Accept',
+			'Origin',
+			'X-Requested-With'
+		]
+	}
 })
 
 const PORT = 5000
