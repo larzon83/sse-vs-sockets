@@ -16,22 +16,22 @@
     "io:prod": "node ./server-io/server-io.js"
   },
   "dependencies": {
-    "@nuxtjs/axios": "5.13.0",
+    "@nuxtjs/axios": "5.13.1",
     "@nuxtjs/proxy": "2.1.0",
     "core-js": "3.8.3",
     "nuxt": "2.14.12",
     "nuxt-socket-io": "1.1.14",
-    "oidc-client": "1.11.3",
+    "oidc-client": "1.11.4",
     "socket.io": "3.1.1",
     "socket.io-client": "3.1.1",
     "vue-sse": "1.0.2",
-    "vuex-oidc": "3.10.1"
+    "vuex-oidc": "3.10.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "5.0.0",
     "@nuxtjs/eslint-module": "3.0.2",
     "babel-eslint": "10.1.0",
-    "eslint": "7.19.0",
+    "eslint": "7.20.0",
     "eslint-config-prettier": "7.2.0",
     "eslint-plugin-nuxt": "2.0.0",
     "eslint-plugin-prettier": "3.3.1",
